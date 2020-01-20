@@ -11,7 +11,6 @@
     <div id='wrapper'>
         <div id='header'>
             <h1>Culp.</h1>
-            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p>
             <hr>
             <p>“A goal is something that you will achieve one day and then be able to cross it off your list forever, a habit is something that you repeatedly do."</p>
         </div>
@@ -31,10 +30,11 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-                <input type='text' name='new_habit' placeholder='Post a new habit here!'><input type='submit' value='Add a New Habit!' class ='habits_button'>
+                <input type='text' name='new_habit' placeholder='Post a new habit here!'><input type='submit' value='Post' class ='habits_button'>
             </form>
             <div class='habits_section'>
                 <h4>Here is a list of the new habits you're building:</h4> 
+                <br>
                 {% for habits in habits %}
                 {% if session['user_id'] == habits.user_id %}
                 <p>{{habits.habit}}</p>

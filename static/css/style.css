@@ -8,11 +8,16 @@
     margin: 0px auto;
 }
 
+html {
+    background: url(goals.jpg) no-repeat center fixed; 
+    background-size: 100%;
+  }
+
 #header {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     font-size: 30px;
-    margin: 15px 0px 15px 0px;
+    margin: 50px 0px 15px 0px;
 }
 
 #header p {
@@ -20,6 +25,22 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 20px;
     margin: 15px 0px 15px 0px;
+    font-weight: bold;
+    background-color:#f1f0f088;
+    border-radius:25px;
+    padding: 5px;
+}
+
+#error_messages {
+    min-height: 0px;
+    padding: 10px;
+    width: 350px;
+    margin: 0px 0px 0px 250px;
+    display:inline-block;
+    text-align: center;
+    border-radius: 25px;
+    font-weight: bold;
+
 }
 
 #main_message {
@@ -27,6 +48,9 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 17px;
     margin: 15px 0px 15px 0px;
+    font-weight: bold;
+    border: solid;
+    border-width: 3px;
 }
 
 #registration, #login {
@@ -37,7 +61,8 @@
     margin: 10px 0px 0px 250px;
     display:inline-block;
     text-align: top;
-    background:lightgrey;
+    border-radius: 25px;
+    background-color:#f1f0f088;
 }
 
 #registration h3 {
@@ -48,6 +73,7 @@
 #registration p {
     padding-top: 10px;
     width: 300px;
+    font-weight: bold;
 }
 
 #login h3 {
@@ -58,6 +84,7 @@
 #login p {
     padding-top: 10px;
     width: 300px;
+    font-weight: bold;
 }
 
 input[type='text'] {
@@ -106,11 +133,8 @@ input[type='password'] {
     margin: 5px;
     padding:5px;
     display: inline-block;
+    border-radius:25px;
     vertical-align: top;
-}
-
-.logout_button {
-    background:red;
 }
 
 #profile {
@@ -118,18 +142,35 @@ input[type='password'] {
     vertical-align: top;
     margin: 15px 0px 0px 100px;
     text-align: center;
+    background-color:#f1f0f0cc;
+    border-radius:25px;
+    padding:10px;
 }
 
 .goal_section {
     margin-top:20px;
+    width: 650px;
+    min-height:100px;
+    overflow: scroll;
 }
 
 .goal_section button {
     margin-bottom:10px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.452);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }
 
 .goal_button {
-    margin-left: 10px
+    margin-left: 5px;
+    background-color: rgba(0, 128, 0, 0.281);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }
 
 #habits {
@@ -137,18 +178,35 @@ input[type='password'] {
     vertical-align: top;
     margin: 15px 0px 0px 100px;
     text-align: center;
+    background-color:#f1f0f0cc;
+    border-radius:25px;
+    padding:10px;
 }
 
 .habits_section {
     margin-top:20px;
+    width: 650px;
+    min-height:100px;
+    overflow: scroll;
 }
 
 .habits_section button {
     margin-bottom:10px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.452);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }
 
 .habits_button {
-    margin-left: 10px
+    margin-left: 5px;
+    background-color: rgba(0, 128, 0, 0.281);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }
 
 #motivation {
@@ -156,17 +214,33 @@ input[type='password'] {
     vertical-align: top;
     margin: 15px 0px 0px 100px;
     text-align: center;
+    background-color:#f1f0f0cc;
+    border-radius:25px;
+    padding:10px;
 }
 
 .motivation_section {
     margin-top:20px;
-    max-width: 650px;
+    width: 650px;
+    min-height:100px;
+    overflow: scroll;
 }
 
 .motivation_section button {
     margin-bottom:10px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.452);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }
 
 .motivation_button {
-    margin-left: 10px
+    margin-left: 5px;
+    background-color: rgba(0, 128, 0, 0.281);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
 }

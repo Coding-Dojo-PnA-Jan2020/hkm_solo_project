@@ -18,6 +18,14 @@
                 $('#login p, .log_button').hide()
             });
 
+            $(function(){
+                $('#main_message').hide()
+            });
+
+            $('#header h1').hover(function(){
+                $('#main_message').show()
+            });
+
             $('#registration h3').click(function(){
                 $('#registration p, .reg_button').toggle()
             });
@@ -32,20 +40,22 @@
     <div id='wrapper'>
         <div id='header'>
             <h1>Culp.</h1>
-            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame. More fire!!</p>
+            <!-- <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p> -->
         </div>
-        <hr>
+        <!-- <hr> -->
         <p id ='main_message'>Culp. is a site designed to help you build better habits, track your goals and share progress with those you deem worthy of being a part of your journey.</p>
-        <div id='registration'>
-            <form action='/registration' method='post'>
-                <h3>Click Here to Register</h3>
-                {% with messages = get_flashed_messages() %}
+        <div id='error_messages'>
+        {% with messages = get_flashed_messages() %}
                     {% if messages %}
                         {% for message in messages %}
                             <p>{{message}}</p>
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
+        </div>
+        <div id='registration'>
+            <form action='/registration' method='post'>
+                <h3>Click Here to Register</h3>
                 <p>First Name: <input type='text' name='fname'></p>
                 <p>Last Name: <input type='text' name='lname'></p>
                 <p>Email: <input type='text' name='email'></p>
@@ -57,13 +67,6 @@
         <div id='login'>
             <form action='/login' method='post'>
                 <h3>Click Here to Login</h3>
-                {% with messages = get_flashed_messages() %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p>{{message}}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
                 <p>Email: <input type='text' name='email'></p>
                 <p>Password: <input type='password' name='pword'></p>
                 <input type='submit' value='Login' class='log_button'>

@@ -23,7 +23,7 @@ def register():
         is_valid = False
         flash("Last name must be at least 2 characters long.")
     if not EMAIL_REGEX.match(request.form['email']):
-        flash('Invalid email address.')
+        flash('The email address you provided is invalid.')
     if len(request.form['pword']) < 8:
         is_valid = False
         flash("Password must be at least 8 characters long.")
@@ -74,7 +74,7 @@ def login():
         if bcrypt.check_password_hash(hashed_password, request.form['pword']):
             session['user_id'] = result[0]['id']
             return redirect('/profile')
-    flash('You could not be logged in')
+    flash('You could not be logged in. Please try again.')
     return redirect('/')
 
 @app.route('/logout')

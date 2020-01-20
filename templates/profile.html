@@ -11,7 +11,6 @@
     <div id='wrapper'>
         <div id='header'>
             <h1>Culp.</h1>
-            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p>
         <hr>
         <p>“If you want to be happy, set a goal that commands your thoughts, liberates your energy and inspires your hopes.” —Andrew Carnegie</p>
         </div>
@@ -31,10 +30,11 @@
                         {% endfor %}
                     {% endif %}
                 {% endwith %}
-                <input type='text' name='new_goal' placeholder='Post a new goal here!'><input type='submit' value='Add a New Goal!' class ='goal_button'>
+                <input type='text' name='new_goal' placeholder='Post a new goal here!'><input type='submit' value='Post' class ='goal_button'>
             </form>
             <div class='goal_section'>
                 <h4>Here is a list of your goals:</h4> 
+                <br>
                 {% for goals in goals %}
                 {% if session['user_id'] == goals.user_id %}
                 <p>{{goals.goals}}</p>
