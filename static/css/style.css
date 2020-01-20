@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width:900px;
+    margin: 0px auto;
+}
+
+#header {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 30px;
+    margin: 15px 0px 15px 0px;
+}
+
+#header p {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    margin: 15px 0px 15px 0px;
+}
+
+#main_message {
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 17px;
+    margin: 15px 0px 15px 0px;
+}
+
+#registration, #login {
+    border-style: solid;
+    min-height: 15px;
+    padding: 10px;
+    width: 350px;
+    margin: 10px 0px 0px 250px;
+    display:inline-block;
+    text-align: top;
+    background:lightgrey;
+}
+
+#registration h3 {
+    width: 300px;
+    margin-left:90px;
+}
+
+#registration p {
+    padding-top: 10px;
+    width: 300px;
+}
+
+#login h3 {
+    width: 300px;
+    margin-left:100px;
+}
+
+#login p {
+    padding-top: 10px;
+    width: 300px;
+}
+
+input[type='text'] {
+    width: 325px;
+    text-align: left;
+    border-style: solid;
+    vertical-align: top;
+    display:inline-block;
+    height: 16px;
+}
+
+input[type='password'] {
+    width: 325px;
+    text-align: left;
+    border-style: solid;
+    vertical-align: top;
+    display:inline-block;
+    height: 16px;
+}
+
+.reg_button, .log_button {
+    margin-top: 10px;
+    margin-left: 279px;
+    background: black;
+    color: white;
+    height: 25px;
+    width: 60px;
+    border-style: solid;
+    border-color: black;
+}
+
+#navigation {
+    display: inline-block;
+    width: 100px;
+    margin: 15px 0px 0px 15px;
+    display: inline-block;
+}
+
+#navigation button {
+    width: 100px;
+    min-height: 20px;
+    margin-bottom:15px;
+    border-style: solid;
+    background: black;
+    color: white;
+    margin: 5px;
+    padding:5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.logout_button {
+    background:red;
+}
+
+#profile {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 0px 0px 100px;
+    text-align: center;
+}
+
+.goal_section {
+    margin-top:20px;
+}
+
+.goal_section button {
+    margin-bottom:10px;
+}
+
+.goal_button {
+    margin-left: 10px
+}
+
+#habits {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 0px 0px 100px;
+    text-align: center;
+}
+
+.habits_section {
+    margin-top:20px;
+}
+
+.habits_section button {
+    margin-bottom:10px;
+}
+
+.habits_button {
+    margin-left: 10px
+}
+
+#motivation {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 0px 0px 100px;
+    text-align: center;
+}
+
+.motivation_section {
+    margin-top:20px;
+    max-width: 650px;
+}
+
+.motivation_section button {
+    margin-bottom:10px;
+}
+
+.motivation_button {
+    margin-left: 10px
+}

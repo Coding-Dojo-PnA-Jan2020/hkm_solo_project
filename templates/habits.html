@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Culp. (n)</title>
+    <link rel='stylesheet' href='static/css/style.css'>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='header'>
+            <h1>Culp.</h1>
+            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p>
+            <hr>
+            <p>“A goal is something that you will achieve one day and then be able to cross it off your list forever, a habit is something that you repeatedly do."</p>
+        </div>
+        <div id='navigation'>
+            <a href='/profile'><button>Goals</button></a>
+            <a href='/habits'><button>Habits</button></a>
+            <a href='/motivation'><button>Motivation</button></a>
+            <a href='/'><button>Log Out</button></a>
+        </div>
+        <div id='habits'>
+            <h2>Track your new habits!</h2>
+            <form action='/new_habits' method='post'>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type='text' name='new_habit' placeholder='Post a new habit here!'><input type='submit' value='Add a New Habit!' class ='habits_button'>
+            </form>
+            <div class='habits_section'>
+                <h4>Here is a list of the new habits you're building:</h4> 
+                {% for habits in habits %}
+                {% if session['user_id'] == habits.user_id %}
+                <p>{{habits.habit}}</p>
+                <a href='/habits/{{habits.id}}/delete'><button class='delete_button'>Delete</button></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

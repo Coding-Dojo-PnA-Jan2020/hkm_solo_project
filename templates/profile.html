@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Culp. (n)</title>
+    <link rel='stylesheet' href='static/css/style.css'>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='header'>
+            <h1>Culp.</h1>
+            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p>
+        <hr>
+        <p>“If you want to be happy, set a goal that commands your thoughts, liberates your energy and inspires your hopes.” —Andrew Carnegie</p>
+        </div>
+        <div id='navigation'>
+            <a href='/profile'><button>Goals</button></a>
+            <a href='/habits'><button>Habits</button></a>
+            <a href='/motivation'><button>Motivation</button></a>
+            <a href='/'><button>Log Out</button></a>
+        </div>
+        <div id='profile'>
+            <h2>Let's set some goals!</h2>
+            <form action='/new_goals' method='post'>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type='text' name='new_goal' placeholder='Post a new goal here!'><input type='submit' value='Add a New Goal!' class ='goal_button'>
+            </form>
+            <div class='goal_section'>
+                <h4>Here is a list of your goals:</h4> 
+                {% for goals in goals %}
+                {% if session['user_id'] == goals.user_id %}
+                <p>{{goals.goals}}</p>
+                <a href='/goals/{{goals.id}}/delete'><button class='delete_button'>Delete</button></a>
+                {% endif %}
+                {% endfor %}
+            </div> 
+        </div>
+    </div>
+</body>
+</html>

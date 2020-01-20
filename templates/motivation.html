@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Culp. (n)</title>
+    <link rel='stylesheet' href='static/css/style.css'>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='header'>
+            <h1>Culp.</h1>
+            <p>cul·pa·bil·i·ty : responsibility for a fault or wrong; blame.</p>
+            <hr>
+            <p>“The secret of getting ahead is getting started. - Mark Twain"</p>
+        </div>
+        <div id='navigation'>
+            <a href='/profile'><button>Goals</button></a>
+            <a href='/habits'><button>Habits</button></a>
+            <a href='/motivation'><button>Motivation</button></a>
+            <a href='/'><button>Log Out</button></a>
+        </div>
+        <div id='motivation'>
+            <h2>Let's stay motivated!</h2>
+            <form action='/new_motivation' method='post'>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type='text' name='new_motivation' placeholder='Post a motivational quote here!'><input type='submit' value='Add a New Motivational Quote!' class ='motivation_button'>
+            </form>
+            <div class='motivation_section'>
+                <h4>Here is a list of motivational quotes:</h4> 
+                {% for motivation in motivation %}
+                {% if session['user_id'] == motivation.user_id %}
+                <p>{{motivation.motivation}}</p>
+                <a href='/motivation/{{motivation.id}}/delete'><button class='delete_button'>Delete</button></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
