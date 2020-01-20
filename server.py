@@ -233,5 +233,55 @@ def delete_motivation(motivation_id):
     mysql.query_db(query, data)
     return redirect("/motivation")
 
+@app.route('/tasks')
+def tasks():
+    if 'user_id' not in session:
+        return redirect('/')
+
+    mysql = connectToMySQL('culp')
+    query = 'SELECT * FROM users WHERE users.id = %(id)s'
+    data = {
+        'id': session['user_id']
+    }
+    user = mysql.query_db(query, data)
+
+    mysql = connectToMySQL('culp')
+    query = 'SELECT tasks.content, tasks.id, tasks.user_id, users.first_name FROM tasks JOIN users on tasks.user_id = users.id'
+    tasks = mysql.query_db(query)
+
+    return render_template('todo.html',users=user[0], tasks=tasks)
+
+@app.route('/new_tasks', methods=['POST'])
+def new_tasks():
+    is_valid = True
+
+    if 'user_id' not in session:
+        return redirect('/')
+
+    if len(request.form['task_list']) < 5:
+        is_valid = False
+        flash("A new task must be at least 5 characters long.")
+
+    if is_valid:
+        mysql = connectToMySQL('culp')
+        query = 'INSERT INTO tasks (content, user_id, created_at, updated_at) VALUES (%(tasks)s, %(id)s, now(), now())'
+        data = {
+            'tasks': request.form['task_list'],
+            'id': session['user_id']
+        }
+        motivation = mysql.query_db(query, data)
+    return redirect('/tasks')
+
+@app.route("/tasks/<tasks_id>/delete")
+def delete_tasks(tasks_id):
+
+    query = "DELETE FROM tasks WHERE id = %(tasks_id)s"
+    data = {
+        'tasks_id': tasks_id
+    }
+    mysql = connectToMySQL('culp')
+    mysql.query_db(query, data)
+    return redirect("/tasks")
+
 if __name__ == '__main__':
     app.run(debug=True)

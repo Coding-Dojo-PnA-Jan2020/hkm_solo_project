@@ -244,3 +244,39 @@ input[type='password'] {
     padding:1px;
     font-weight: bold;
 }
+
+.tasks_section {
+    margin-top:20px;
+    width: 650px;
+    min-height:100px;
+    overflow: scroll;
+}
+
+#tasks {
+    display: inline-block;
+    vertical-align: top;
+    margin: 15px 0px 0px 100px;
+    text-align: center;
+    background-color:#f1f0f0cc;
+    border-radius:25px;
+    padding:10px;
+}
+
+.tasks_section button {
+    margin-bottom:10px;
+    margin-left: 5px;
+    background-color: rgba(0, 0, 0, 0.452);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
+}
+
+.tasks_button {
+    margin-left: 5px;
+    background-color: rgba(0, 128, 0, 0.281);
+    border-color: black;
+    border-radius: 5px;
+    padding:1px;
+    font-weight: bold;
+}

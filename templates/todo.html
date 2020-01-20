@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Culp. (n)</title>
+    <link rel='stylesheet' href='static/css/style.css'>
+    <script type="text/javascript" src= 'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+            $('.complete_button').click(function(){
+                $('li').hide()
+            });
+
+            $('.show_button').click(function(){
+                $('li').show()
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id='wrapper'>
+        <div id='header'>
+            <h1>Culp.</h1>
+            <hr>
+            <p>“Get sh*t done!"</p>
+        </div>
+        <div id='navigation'>
+            <a href='/profile'><button>Goals</button></a>
+            <a href='/habits'><button>Habits</button></a>
+            <a href='/motivation'><button>Motivation</button></a>
+            <a href='/tasks'><button>Task List</button></a>
+            <a href='/'><button>Log Out</button></a>
+        </div>
+        <div id='tasks'>
+            <h2>Task List</h2>
+            <form action='/new_tasks' method='post'>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type='text' name='task_list' placeholder='Post a new task here!'><input type='submit' value='Post' class ='tasks_button'>
+            </form>
+            <div class='tasks_section'>
+                <button class='show_button'>Show Completed Tasks</button>
+                <h4>Here is a list of your open tasks:</h4> 
+                <br>
+                {% for tasks in tasks %}
+                {% if session['user_id'] == tasks.user_id %}
+                <li>{{tasks.content}}
+                <button class='complete_button'>Mark As Complete</button><a href='/tasks/{{tasks.id}}/delete'><button class='delete_button'>Delete</button></a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
